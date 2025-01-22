@@ -16,7 +16,7 @@ wget https://speech-lab-share-data.oss-cn-shanghai.aliyuncs.com/AliMeeting/openl
 tar -xzvf Train_Ali_far.tar.gz
 tar -xzvf Eval_Ali.tar.gz
 ```
-
+- Download speaker model (ecapa-tdnn) from https://1drv.ms/u/c/6c1f3d2be9b0f2f9/EWJeXgE8KEtCp9nVUlCNnoYBDef3nMSk2XsHBoBEtILXpg?e=YtJEvl
 - Download speaker embedding from https://drive.google.com/file/d/1tNRnF9ouPbPX9jxAh1HkuNBOY9Yx6Pj9/view?usp=sharing
 
 - Then make the dataset look like:
@@ -52,3 +52,9 @@ alimeeting
 │   ├── SpeakerEmbedding 
 │     ├── ...
 ```
+
+## Train
+```
+bash scripts/run_ali.sh
+```
+This will use only alimeeting dataset for training.
