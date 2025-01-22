@@ -1,6 +1,6 @@
 # TSVAD_MC
 
-### Install
+## Install
 ```
 conda env create -f environment.yml
 ```
