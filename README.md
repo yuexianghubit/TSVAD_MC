@@ -53,9 +53,16 @@ alimeeting
 │     ├── ...
 ```
 
-## Run Multi-Channel TS-VAD
+## Multi-Channel TS-VAD
+### Train
 ```
 bash scripts/run_ali.sh # This will use only alimeeting dataset for training.
 bash scripts/run_ali_ami.sh # This will use alimeeting and ami datasets for training.
 ```
+### Evaluate
+```
+bash scripts/eval_ali.sh # This will evaluate on alimeeting dataset.
+bash scripts/eval_ntu.sh # This will evaluate on NTU recorded dataset.
+```
+
 
