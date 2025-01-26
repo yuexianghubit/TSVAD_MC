@@ -53,11 +53,38 @@ alimeeting
 │     ├── ...
 ```
 
+### 2. Download AMI dataset
+- Download AMI dataset from 
+
+### 3. Merge Alimeeting and AMI dataset
+```
+cd data
+mkdir alimeeting_ami
+ln -s ../alimeeting/Eval_Ali . # we use the eval set of alimeeting for evaluation
+ln -s ../../alimeeting/Train_Ali/Train_Ali_far/target_audio_mc/ . # link alimeeting data
+ln -s ../../ami/target_audio_mc/* . # link ami data
+
+python merge_json.py # merge alimeeting and ami data json
+```
+
+
+### 4. Download NTU recorded dataset
+- Download NTU recorded dataset from 
+
+```
+tar -xvf 2023_ntu-recordings_16kv2.tar
+cd 2023_ntu-recordings_16kv2
+mkdir audio_bound
+cp audio/*/*/*_chn00_bound.wav audio_bound # bound files are multi-channel
+bash script/preprocess_ntu.sh
+```
+
+
 ## Multi-Channel TS-VAD
 ### Train
 ```
-bash scripts/run_ali.sh # This will use only alimeeting dataset for training.
-bash scripts/run_ali_ami.sh # This will use alimeeting and ami datasets for training.
+bash scripts/run_ali_mc.sh # This will use only alimeeting dataset for training.
+bash scripts/run_ali_ami_mc.sh # This will use alimeeting and ami datasets for training.
 ```
 ### Evaluate
 ```
@@ -65,4 +92,12 @@ bash scripts/eval_ali.sh # This will evaluate on alimeeting dataset.
 bash scripts/eval_ntu.sh # This will evaluate on NTU recorded dataset.
 ```
 
+### Results
+| Model | Method | Training Data | Alimeeting Test | NTU Test |
+|-------|--------|---------------|-----------------|----------|
+| **#1** | Multi-Channel TS-VAD (Speech Encoder: Ecapa TDNN) | Alimeeting | 3.86% | - |
+| **#2** | Multi-Channel TS-VAD (Speech Encoder: Ecapa TDNN) | Alimeeting + AMI | 3.66% | 39.21% |
+
+
+### Pre-trained models
 
