@@ -61,7 +61,24 @@ unzip ami.zip
 
 bash scripts/preprocess_ami.sh
 ```
-
+- The dataset should look like:
+```
+ami
+├── Train.json
+├── target_audio_mc
+│   ├── ES2002a
+│   ├── ES2002b
+│   ├── ...
+├── rttm_array01
+│   ├── ES2002a.rttm
+│   ├── ES2002b.rttm
+│   ├── ...
+├── data_array01
+│   ├── ES2002a.wav
+│   ├── ES2002b.wav
+│   ├── ...
+├── SpeakerEmbedding
+```
 
 ### 3. Merge Alimeeting and AMI dataset
 ```
