@@ -126,8 +126,6 @@ def _main(cfg: DictConfig, output_file):
     use_cuda = torch.cuda.is_available() and not cfg.common.cpu
 
     # Load dataset splits
-    cfg.task.dataset_name = 'ntu' 
-    # cfg.task.dataset_name = 'alimeeting' 
     task = tasks.setup_task(cfg.task)
 
     overrides = ast.literal_eval(cfg.common_eval.model_overrides)
@@ -252,10 +250,10 @@ def cli_main():
         help="Model architecture. For constructing tasks that rely on "
         "model args (e.g. `AudioPretraining`)",
     )
-    # parser.add_argument("--dataset_name",
-    #     default="ntu",
-    #     help="dataset name"
-    # )
+    parser.add_argument("--dataset_name",
+        default="ntu",
+        help="dataset name"
+    )
     args = options.parse_args_and_arch(parser)
     main(args)
 
