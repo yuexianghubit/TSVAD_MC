@@ -1,7 +1,7 @@
 #!/bin/bash
 
 gpu=0
-exp_name=rerun_tsvad_mc_ali_ami
+exp_name=rerun_tsvad_mc_ali_ami_chime5
 rs_len=4000
 segment_shift=1
 gen_subset=Eval
@@ -23,8 +23,9 @@ results_path=${exp_dir}/${exp_name}/inf # need change
 python3 ${ts_vad_path}/generate.py ${data_path} \
   --user-dir ${ts_vad_path} \
   --results-path ${results_path} \
-  --path ${exp_dir}/${exp_name}/checkpoints/checkpoint_best.pt \
+  --path ${exp_dir}/${exp_name}/checkpoints/checkpoint11.pt \
   --task ts_vad_mc \
+  --dataset_name alimeeting \
   --spk-path ${spk_path} \
   --rs-len ${rs_len} \
   --segment-shift ${segment_shift} \
