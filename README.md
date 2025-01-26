@@ -56,6 +56,13 @@ alimeeting
 ### 2. Download AMI dataset
 - Download AMI dataset from 
 
+```
+unzip ami.zip
+
+bash scripts/preprocess_ami.sh
+```
+
+
 ### 3. Merge Alimeeting and AMI dataset
 ```
 cd data
@@ -69,7 +76,7 @@ python merge_json.py # merge alimeeting and ami data json
 
 
 ### 4. Download NTU recorded dataset
-- Download NTU recorded dataset from 
+- Download NTU recorded dataset from https://1drv.ms/u/c/6c1f3d2be9b0f2f9/EflqL_U40xBBkkZJ9rxbcG0BMnbG0D899zTRkbV-kEhFKw?e=ua6OcD
 
 ```
 tar -xvf 2023_ntu-recordings_16kv2.tar
@@ -95,9 +102,12 @@ bash scripts/eval_ntu.sh # This will evaluate on NTU recorded dataset.
 ### Results
 | Model | Method | Training Data | Alimeeting Test | NTU Test |
 |-------|--------|---------------|-----------------|----------|
-| **#1** | Multi-Channel TS-VAD (Speech Encoder: Ecapa TDNN) | Alimeeting | 3.86% | - |
-| **#2** | Multi-Channel TS-VAD (Speech Encoder: Ecapa TDNN) | Alimeeting + AMI | 3.66% | 39.21% |
+| **#1** | Multi-Channel TS-VAD <br> (Speech Encoder: Ecapa TDNN) | Alimeeting | 3.86% | - |
+| **#2** | Multi-Channel TS-VAD <br> (Speech Encoder: Ecapa TDNN) | Alimeeting + AMI | 3.66% | 39.21% |
 
 
 ### Pre-trained models
+- The pre-trained model trained only on Alimeeting dataset can be obtained from https://1drv.ms/u/c/6c1f3d2be9b0f2f9/EQbrUxrufw9NoGXKeTWp0cABv4d-jinIXMDgy_mTMEOU4Q?e=HclC6e
+
+- The pre-trained model trained only on Alimeeting and AMI datasets can be obtained from https://1drv.ms/u/c/6c1f3d2be9b0f2f9/EWpA9_PNYm1IkEz6D8ikV6cBFKJ2icKz38UVmwJwFdxIdQ?e=jFlpuu
 
