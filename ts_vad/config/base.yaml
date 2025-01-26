@@ -1,0 +1,71 @@
+# @package _group_
+
+common:
+  fp16: true
+  log_format: json
+  log_interval: 200
+  tensorboard_logdir: tblog
+  seed: 1337
+
+checkpoint:
+  best_checkpoint_metric: DER
+  save_interval_updates: 3000
+
+distributed_training:
+  ddp_backend: legacy_ddp
+  find_unused_parameters: true
+  distributed_world_size: 1
+
+task:
+  _name: ts_vad_mc
+  data: ???
+  dataset_name: alimeeting_ami_chime5
+  mic_idx: -1 # single-channel: e.g., 0; multi-channel: -1
+  rs_len: 4000
+  segment_shift: 2
+  shuffle_spk_embed_level: 3
+  noise_ratio: 0.8
+  zero_ratio: 0.3
+  speech_encoder_type: ecapa
+
+dataset:
+  num_workers: 6
+  batch_size: 64
+  train_subset: Train
+  valid_subset: Eval
+
+criterion:
+  _name: model
+  log_keys:
+    - DER
+    - MI
+    - FA
+    - CF
+    - ACC
+
+optimization:
+  max_update: 100000
+  lr: [2e-4]
+  update_freq: [1]
+
+optimizer:
+  _name: adam
+  adam_betas: (0.9,0.98)
+  adam_eps: 1e-08
+  weight_decay: 0.01
+
+lr_scheduler:
+  _name: polynomial_decay
+  warmup_updates: 4000
+
+model:
+  _name: ts_vad_mc
+  freeze_speech_encoder_updates: 4000
+  num_attention_head: 4
+  num_transformer_layer: 2
+  transformer_ffn_embed_dim: 1536
+  dropout: 0.1
+
+hydra:
+  run:
+    dir: ???

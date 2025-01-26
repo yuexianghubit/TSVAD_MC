@@ -1,0 +1,62 @@
+# @package _group_
+
+common:
+  fp16: false
+  log_format: json
+  log_interval: 200
+  tensorboard_logdir: tblog
+  seed: 1337
+
+checkpoint:
+  save_interval_updates: 1500
+
+distributed_training:
+  ddp_backend: legacy_ddp
+  find_unused_parameters: true
+  distributed_world_size: 4
+
+task:
+  _name: ts_vad_task
+  data: ???
+  rs_len: 4
+  segment_shift: 2
+  task_type: extraction
+  musan_path: /mnt/bn/junyi-nas2/musan
+  rir_path: /mnt/bn/junyi-nas2/rirs_noises/RIRS_NOISES/simulated_rirs
+  noise_ratio: 0.1
+
+dataset:
+  num_workers: 6
+  max_tokens: 260000
+  train_subset: train
+  valid_subset: dev
+
+criterion:
+  _name: model
+  log_keys:
+    - spk_acc
+    - se_1
+    - se_2
+    - se_3
+
+optimization:
+  max_update: 100000
+  lr: [2e-4]
+  update_freq: [1]
+
+optimizer:
+  _name: adam
+  adam_betas: (0.9,0.98)
+  adam_eps: 1e-08
+  weight_decay: 0.01
+
+lr_scheduler:
+  _name: polynomial_decay
+  warmup_updates: 10000
+
+model:
+  _name: spex_plus
+
+hydra:
+  run:
+    dir: ???
