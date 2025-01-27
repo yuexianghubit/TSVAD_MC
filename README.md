@@ -2,6 +2,7 @@
 
 ## Install
 ```
+git clone https://github.com/yuexianghubit/TSVAD_MC.git
 conda env create -f environment.yml
 ```
 
