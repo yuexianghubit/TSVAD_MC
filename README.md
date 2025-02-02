@@ -58,6 +58,7 @@ alimeeting
 - Download AMI dataset from https://1drv.ms/f/c/6c1f3d2be9b0f2f9/End4xg44oLhGi_bSQQc0P5UBbVGRW3S3UtXTrs7nm9LfCA?e=2XrUbm
 
 ```
+zip -F ami_split.zip --out ami.zip
 unzip ami.zip
 
 bash scripts/preprocess_ami.sh
