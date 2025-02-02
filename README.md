@@ -55,7 +55,7 @@ alimeeting
 ```
 
 ### 2. Download AMI dataset
-- Download AMI dataset from 
+- Download AMI dataset from https://1drv.ms/f/c/6c1f3d2be9b0f2f9/End4xg44oLhGi_bSQQc0P5UBbVGRW3S3UtXTrs7nm9LfCA?e=2XrUbm
 
 ```
 unzip ami.zip
