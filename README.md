@@ -10,6 +10,8 @@ conda env create -f environment.yml
 ## Dataset
 ### 1. Download Alimeeting dataset (https://openslr.org/119/)
 ```
+mkdir data
+cd data
 mkdir alimeeting
 cd alimeeting
 wget https://speech-lab-share-data.oss-cn-shanghai.aliyuncs.com/AliMeeting/openlr/Train_Ali_far.tar.gz
@@ -29,9 +31,11 @@ alimeeting
 ├── Eval_Ali
 │   ├── Eval_Ali_far 
 │     ├── audio_dir
-├── spk_embed
-│   ├── SpeakerEmbedding 
-│     ├── ...
+├── SpeakerEmbedding
+│   ├── Eval
+│     ├── ecapa_feature_dir
+│   ├── Train
+│     ├── ecapa_feature_dir
 ```
 
 - run scripts/preprocess_ali.sh and then the dataset should look like
@@ -49,9 +53,11 @@ alimeeting
 │     ├── target_audio
 │     ├── textgrid_dir
 │     ├── Eval.json
-├── spk_embed
-│   ├── SpeakerEmbedding 
-│     ├── ...
+├── SpeakerEmbedding
+│   ├── Eval
+│     ├── ecapa_feature_dir
+│   ├── Train
+│     ├── ecapa_feature_dir
 ```
 
 ### 2. Download AMI dataset
