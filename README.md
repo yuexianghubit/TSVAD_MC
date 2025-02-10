@@ -106,6 +106,8 @@ python merge_json.py # merge alimeeting and ami data json
 ```
 tar -xvf 2023_ntu-recordings_16kv2.tar
 cd 2023_ntu-recordings_16kv2
+mkdir rttm_bound
+cp rttm/*/*/*chn00_bound.rttm rttm_bound
 mkdir audio_bound
 cp audio/*/*/*_chn00_bound.wav audio_bound # bound files are multi-channel
 bash script/preprocess_ntu.sh
