@@ -129,8 +129,8 @@ bash scripts/eval_ntu.sh # This will evaluate on NTU recorded dataset.
 ### Results
 | Model | Method | Training Data | Alimeeting Test | NTU Test |
 |-------|--------|---------------|-----------------|----------|
-| **#1** | Multi-Channel TS-VAD <br> (Speech Encoder: Ecapa TDNN) | Alimeeting | 3.86% | - |
-| **#2** | Multi-Channel TS-VAD <br> (Speech Encoder: Ecapa TDNN) | Alimeeting + AMI | 3.66% | 39.21% |
+| **#1** | Multi-Channel TS-VAD <br> (Speech Encoder: Ecapa TDNN) | Alimeeting | 4.16% | 53.81% |
+| **#2** | Multi-Channel TS-VAD <br> (Speech Encoder: Ecapa TDNN) | Alimeeting + AMI | 3.67% | 39.21% |
 
 
 ### Pre-trained models
